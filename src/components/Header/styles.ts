@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  background-image: linear-gradient(
-    10deg,
-    ${({ theme }) => theme.blue},
-    ${({ theme }) => theme['base-profile']}
-  );
+  background: rgba(21, 98, 175, 0.14);
   padding: 2.5rem 0 7.5rem;
 `
 

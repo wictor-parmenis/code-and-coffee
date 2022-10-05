@@ -8,6 +8,10 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 0.5fr 2.5fr;
   gap: 1.5rem;
+
+  max-width: 900px;
+  margin: auto;
+  margin-top: -3rem;
 `
 
 export const ProfileContainer = styled.div`
@@ -31,7 +35,7 @@ export const HeaderCard = styled.div`
 
 export const TitleCard = styled.h2``
 
-export const DescriptionCard = styled.p``
+export const DescriptionText = styled.p``
 
 export const FooterCard = styled.div`
   display: flex;

@@ -4,10 +4,10 @@ import React from 'react'
 
 const Router: React.FC = () => (
   <Routes>
-    <Route path="/">
-      <Route path="/" element={<Posts />} />
-      {/* <Route path="/history" element={<History />} /> */}
-    </Route>
+    {/* <Route path="/"> */}
+    <Route path="/" element={<Posts />} />
+    {/* <Route path="/history" element={<History />} /> */}
+    {/* </Route> */}
   </Routes>
 )
 
