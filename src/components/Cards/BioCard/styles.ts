@@ -9,14 +9,17 @@ export const CardContainer = styled.div`
   grid-template-columns: 0.5fr 2.5fr;
   gap: 1.5rem;
 
-  max-width: 900px;
   margin: auto;
   margin-top: -3rem;
+  padding: 2rem;
+
+  width: 100%;
 `
 
 export const ProfileContainer = styled.div`
   img {
-    max-width: 7rem;
+    max-width: 8rem;
+    border-radius: 8px;
   }
 `
 
@@ -39,17 +42,18 @@ export const DescriptionText = styled.p``
 
 export const FooterCard = styled.div`
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 2rem;
 `
 
 export const Info = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.3rem;
 
   img {
-    width: 2rem;
+    width: 1.5rem;
+    color: ${({ theme }) => theme['base-label']};
   }
 `

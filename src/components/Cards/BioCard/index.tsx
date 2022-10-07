@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   CardContainer,
   Content,
@@ -12,36 +12,54 @@ import {
 import GitHubIcon from '../../../assets/github.svg'
 import BuildingIcon from '../../../assets/building.svg'
 import UserGroupIcon from '../../../assets/user-group.svg'
+import { api } from '../../../services/api'
+import { endpoints } from '../../../services/endpoints'
+import Link from '../../Link'
 
-const BioCard: React.FC = () => {
+export interface IProfile {
+  avatar_url: string
+  name: string
+  bio: string
+  followers: number
+  company: string
+  login: string
+}
+
+const BioCard = () => {
+  const [profile, setProfile] = useState({} as IProfile)
+
+  useEffect(() => {
+    const getInfoProfile = async () => {
+      const profile = await api.get(endpoints.getUser())
+      setProfile(profile.data)
+    }
+
+    getInfoProfile()
+  }, [])
+
   return (
     <CardContainer>
       <ProfileContainer>
-        <img src="" alt="profile author" />
+        <img src={profile.avatar_url} alt="profile author" />
       </ProfileContainer>
       <Content>
         <HeaderCard>
-          <TitleCard>Nome</TitleCard>
-          <a href="">link</a>
+          <TitleCard>{profile.name}</TitleCard>
+          <Link>GITHUB</Link>
         </HeaderCard>
-        <DescriptionText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
-          consequuntur nobis placeat aliquid sed sint error, tempore voluptate
-          cupiditate impedit velit itaque asperiores nisi ratione voluptatibus
-          labore debitis repudiandae vero?
-        </DescriptionText>
+        <DescriptionText>{profile.bio}</DescriptionText>
         <FooterCard>
           <Info>
             <img src={GitHubIcon} alt="" />
-            <DescriptionText>Profile</DescriptionText>
+            <DescriptionText>{profile.login}</DescriptionText>
           </Info>
           <Info>
             <img src={BuildingIcon} alt="" />
-            <DescriptionText>Repository</DescriptionText>
+            <DescriptionText>{profile.company}</DescriptionText>
           </Info>
           <Info>
             <img src={UserGroupIcon} alt="" />
-            <DescriptionText>Profile</DescriptionText>
+            <DescriptionText>{profile.followers} seguidores</DescriptionText>
           </Info>
         </FooterCard>
       </Content>
