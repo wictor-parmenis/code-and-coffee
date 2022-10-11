@@ -1,10 +1,12 @@
 const { VITE_REACT_APP_USERNAME, VITE_REACT_APP_REPO_BLOG } = import.meta.env
 
-console.log(VITE_REACT_APP_USERNAME, 'USERNAME')
-
 export const endpoints = {
-  getPosts: (query: string) =>
+  getPostsByQuery: (query: string) =>
     `/search/issues?q=${query}repo:wictor-parmenis/${VITE_REACT_APP_REPO_BLOG}`,
+  getPosts: () =>
+    `/repos/${VITE_REACT_APP_USERNAME}/${VITE_REACT_APP_REPO_BLOG}/issues`,
+  getPost: (number: string) =>
+    `/repos/${VITE_REACT_APP_USERNAME}/${VITE_REACT_APP_REPO_BLOG}/issues/${number}`,
   getUser: () => `/users/${VITE_REACT_APP_USERNAME}`,
 }
 

@@ -3,6 +3,13 @@ import styled from 'styled-components'
 export const HeaderContainer = styled.header`
   background: rgba(21, 98, 175, 0.14);
   padding: 2.5rem 0 7.5rem;
+
+  height: 300px;
+`
+
+export const CoverContent = styled.div`
+  display: flex;
+  justify-content: space-between;
 `
 
 export const HeaderContent = styled.div`
@@ -18,5 +25,6 @@ export const HeaderContent = styled.div`
   img {
     margin: auto;
     margin-top: 2rem;
+    cursor: pointer;
   }
 `

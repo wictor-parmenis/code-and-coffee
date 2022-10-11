@@ -4,7 +4,6 @@ export const PostCardContainer = styled.div`
   padding: 2.5rem;
   width: 440px;
   height: 300px;
-  margin-bottom: 10px;
   background-color: ${({ theme }) => theme['base-post']};
   border-radius: 8px;
   cursor: pointer;

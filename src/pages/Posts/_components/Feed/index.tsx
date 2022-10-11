@@ -1,18 +1,18 @@
 import React from 'react'
+import { useContextSelector } from 'use-context-selector'
 import PostCard from '../../../../components/Cards/PostCard'
+import { PostsContext } from '../../../../context/PostsContext'
 import { FeedContainer } from './styles'
 
-// import { Container } from './styles';
-
 const Feed: React.FC = () => {
+  const { postsCards } = useContextSelector(PostsContext, (context) => context)
+
   return (
     <FeedContainer>
-      <PostCard />
-      <PostCard />
-      <PostCard />
-      <PostCard />
-      <PostCard />
-      <PostCard />
+      {postsCards &&
+        postsCards.map((postCard) => (
+          <PostCard key={postCard.id} postCard={postCard} />
+        ))}
     </FeedContainer>
   )
 }

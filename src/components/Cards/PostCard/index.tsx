@@ -1,4 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { IPostCard } from '../../../context/PostsContext'
 import {
   ContentCardPost,
   HeaderCardPost,
@@ -7,21 +9,22 @@ import {
   TitlePost,
 } from './styles'
 
-// import { Container } from './styles';
+interface IPostCardProps {
+  postCard: IPostCard
+}
 
-const PostCard: React.FC = () => {
+const PostCard: React.FC<IPostCardProps> = ({
+  postCard: { body, title, postingTime, number },
+}) => {
+  const navigate = useNavigate()
+
   return (
-    <PostCardContainer>
+    <PostCardContainer onClick={() => navigate(`/post/${number}`)}>
       <HeaderCardPost>
-        <TitlePost>oi</TitlePost>
-        <InfoPost>olá</InfoPost>
+        <TitlePost>{title}</TitlePost>
+        <InfoPost>{postingTime}</InfoPost>
       </HeaderCardPost>
-      <ContentCardPost>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis
-        possimus, consequuntur fuga ipsa, rerum eaque laudantium atque accusamus
-        soluta ex distinctio id neque beatae, nisi magnam repudiandae eius iste
-        reiciendis.
-      </ContentCardPost>
+      <ContentCardPost>{body.slice(0, 230)}...</ContentCardPost>
     </PostCardContainer>
   )
 }

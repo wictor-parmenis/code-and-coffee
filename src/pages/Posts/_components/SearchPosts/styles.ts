@@ -20,6 +20,7 @@ export const Info = styled.span`
   color: ${({ theme }) => theme['base-span']};
 `
 
+export const FormSearch = styled.form``
 export const SearchInput = styled.input`
   width: 100%;
   height: 3rem;

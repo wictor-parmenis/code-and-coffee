@@ -23,6 +23,7 @@ export interface IProfile {
   followers: number
   company: string
   login: string
+  html_url: string
 }
 
 const BioCard = () => {
@@ -45,7 +46,7 @@ const BioCard = () => {
       <Content>
         <HeaderCard>
           <TitleCard>{profile.name}</TitleCard>
-          <Link>GITHUB</Link>
+          <Link url={profile.html_url}>GITHUB</Link>
         </HeaderCard>
         <DescriptionText>{profile.bio}</DescriptionText>
         <FooterCard>
@@ -54,7 +55,13 @@ const BioCard = () => {
             <DescriptionText>{profile.login}</DescriptionText>
           </Info>
           <Info>
-            <img src={BuildingIcon} alt="" />
+            <img
+              src={BuildingIcon}
+              style={{
+                width: 20,
+              }}
+              alt=""
+            />
             <DescriptionText>{profile.company}</DescriptionText>
           </Info>
           <Info>

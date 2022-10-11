@@ -1,13 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 import Posts from '../pages/Posts'
 import React from 'react'
+import Post from '../pages/Post'
 
 const Router: React.FC = () => (
   <Routes>
-    {/* <Route path="/"> */}
     <Route path="/" element={<Posts />} />
-    {/* <Route path="/history" element={<History />} /> */}
-    {/* </Route> */}
+    <Route path="/post/:numberPost" element={<Post />} />
   </Routes>
 )
 
